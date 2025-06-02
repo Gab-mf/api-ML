@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from io import BytesIO
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import os
 from time import sleep
 from selenium.webdriver.common.by import By
 
@@ -170,4 +171,5 @@ def exportacao():
     return jsonify(dados)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
